@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    height: 100vh;
+}
+.main {
+    flex: 1 1 auto;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.header {
+    padding: 20px 0;
+}
+
+.header > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.category-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.html {
+    font-size: 16px;
+}
+.btn {
+    background-color: #ff514f;
+    color: #fff;
+    outline: none;
+    border: 1px solid #ff514f;
+    padding: .6rem 2rem;
+    font-weight: 700;
+    transition: background-color .2s ease, clip .2s ease;
+    border-radius: 4px;
+    cursor: pointer;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.link {
+    color: #000;
+
+}
+.link:hover {
+    text-decoration: underline;
+}
+.btn:hover {
+    background-color: transparent;
+    color: #ff514f;
+}
+.btn.black {
+    background-color: #121314;
+    border: 1px solid #121314;
+    border-radius: 20px;
+    color: #fff;
+}
+.btn.black:hover {
+    background-color: transparent;
+    color: #121314;
+}
+
+.box {
+    background-color: #f2f2fe;
+    padding: 30px;
+    border-radius: 6px;
+}
+.categories {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.main {
+    padding: 100px 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card .btn {
+    margin-top: 30px;
+}
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+h3 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.image {
+    max-width: 100%;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.input {
+    background-color: #f2f2fe;
+    border: none;
+    padding: .65rem;
+    outline: none;
+    border-radius: 5px;
+}
+.foot-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer * {
+    color: #fff;
+}
+.footer {
+    padding: 60px 0;
+    background-color: #121314;
+}
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+}
+.sizes {
+    flex: 1 1 auto;
+}
