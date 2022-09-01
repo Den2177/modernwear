@@ -97,6 +97,10 @@ a {
     flex-direction: column;
     gap: 10px;
 }
+
+.card .product-sizes {
+    flex: 1 1 auto;
+}
 .card .btn {
     margin-top: 30px;
 }
@@ -114,6 +118,7 @@ h3 {
 }
 .image {
     max-width: 100%;
+    height: 300px;
 }
 
 .image img {

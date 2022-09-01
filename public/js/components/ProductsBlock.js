@@ -5,29 +5,35 @@ export default {
             imageLink: window.imageLink,
         }
     },
-    template: "<main class=\"main\">\n" +
-        "            <div class=\"container\">\n" +
-        "                <div class=\"body\">\n" +
-        "                    <div class=\"products\">\n" +
-        "                        <div class=\"card box\" v-for=\"product in products\">\n" +
-        "                            <div class=\"image\">\n" +
-        "                                <img :src=\"imageLink + product.image\" alt=\"product image\">\n" +
-        "                            </div>\n" +
-        "                            <h3>{{product.title}}</h3>\n" +
-        "                            <div class=\"product-cat\">{{product.category.name}}</div>\n" +
-        "                            <div class=\"product-description\">{{product.description}}</div>\n" +
-        "                            <div class=\"product-price\">{{product.price}}</div>\n" +
-        "                            <div class=\"product-sizes\">\n" +
-        "                                <div class=\"product-size\" v-for=\"size in sizes\">\n" +
-        "                                    {{size.size_unit}}\n" +
-        "                                </div>\n" +
-        "                            </div>\n" +
-        "                            <button class=\"btn\">Добавить в корзину</button>\n" +
-        "                        </div>\n" +
-        "                    </div>\n" +
-        "                </div>\n" +
-        "            </div>\n" +
-        "        </main>",
+    template: `
+        <main>
+        <div class='container'>
+            <div class='body'>
+                <div class='products'>
+                    <div v-for='product in products' class='card box'>
+                        <div class='image'><img :src="imageLink + product.image" alt=''></div>
+                        <h3>{{product.name}}</h3>
+                        <div class="product-cat">
+                          {{ product.category.name }}
+                        </div>
+                        <div class="product-description">
+                            {{product.description}}
+                        </div>
+                        <div class="product-price">
+                            {{product.price}}
+                        </div>
+                        <div class="product-sizes">
+                            <div v-for="size in product.sizes" class="product size">
+                                {{size.size_unit}}
+                            </div>
+                        </div>
+                        <button class="btn">Добавить в корзину</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </main>`,
     methods: {
         getProducts() {
             fetch('/api/products').then(res => res.json()).then(res => this.products = res.data);
