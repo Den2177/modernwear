@@ -5,7 +5,7 @@ export default {
         }
     },
     template: `
-        <main>
+        <main class="main">
         <div class='container'>
             <div class='body'>
                 <div class='products'>

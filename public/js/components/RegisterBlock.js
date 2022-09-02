@@ -22,11 +22,11 @@ export default {
                   if (res.errors) {
                       this.$root.displayNotification(res.errors);
                   } else if (res.message) {
-                      this.$emit('change-page', true);
+                      this.$emit('change-page', true)
                   }
               })
               .catch(err => {
-                  console.log(err);
+                  console.log(err)
               })
       }
     },
@@ -37,8 +37,9 @@ export default {
         <input type="password" class="input" placeholder="Пароль" v-model="userFields.password">
         <input type="password" class="input" placeholder="Повторите пароль" v-model="userFields.passwordConfirmation">
         <button class="btn black">Отправить</button>
+
         <div class="bottom-link">
-            <a href="#" class="link" @click.prevent="this.$emit('changePage', true)">Войти</a>
+            <a href="#" class="link" @click.prevent="this.$root.changePage('login-page')">Войти</a>
         </div>
     </form>
     </div>

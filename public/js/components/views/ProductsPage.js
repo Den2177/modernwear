@@ -1,6 +1,5 @@
 import HeaderBlock from "../HeaderBlock.js";
 import FooterBlock from "../FooterBlock.js";
-import MainBlock from "../MainBlock.js";
 import ProductsBlock from "../ProductsBlock.js";
 
 export default {
@@ -14,11 +13,11 @@ export default {
             this.componentName = newPage
         }
     },
-    components: {HeaderBlock, FooterBlock, MainBlock, ProductsBlock},
+    components: {HeaderBlock, FooterBlock, ProductsBlock},
     template: `
         <div class="wrapper">
-        <header-block @change-page="changePage"></header-block>
-        <main-block></main-block>
+        <header-block></header-block>
+        <products-block></products-block>
         <footer-block></footer-block>
         </div>`,
 }

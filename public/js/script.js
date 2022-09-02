@@ -1,11 +1,14 @@
-import AuthPage from "./components/views/AuthPage.js";
 import MainPage from "./components/views/MainPage.js";
+import LoginPage from "./components/views/LoginPage.js";
+import RegisterPage from "./components/views/RegisterPage.js";
+import ProductsPage from "./components/views/ProductsPage.js";
+
 const {createApp} = Vue;
 
 const app = createApp({
     data() {
         return {
-            isAuth: true,
+            currentPage: 'main-page',
             notification: {
                 visible: false,
                 message: '',
@@ -13,15 +16,18 @@ const app = createApp({
             },
         }
     },
-    components: { MainPage, AuthPage },
+    components: { MainPage, LoginPage, RegisterPage, ProductsPage },
     imageLink: 'http://modernwear/public/images/',
     methods: {
         changePage(newPageName) {
-            this.componentName = newPageName;
+            this.currentPage = newPageName;
+        },
+        checkToken() {
+            return !!localStorage.getItem('api_token');
         },
         displayNotification(content) {
             if (typeof content === 'object') {
-                let message = '';
+                let message = ''
 
                 for (let fieldName in content) {
                     if (Array.isArray(content[fieldName])) {
@@ -29,7 +35,7 @@ const app = createApp({
                     } else if (content.isString) {
                         message += fieldName;
                     }
-                    message += "<br>";
+                    message += "<br>"
                 }
 
                 this.notification = {
@@ -46,7 +52,14 @@ const app = createApp({
                     }
                 }, 5000);
             }
+        },
+        getApiToken() {
+            const apiToken = localStorage.getItem('api_token');
+            this.$root.isAuth = apiToken === '';
         }
+    },
+    mounted() {
+        this.getApiToken();
     }
 });
 

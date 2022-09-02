@@ -20,18 +20,17 @@ class ApiToken
     {
         $bearer = $request->bearerToken();
 
-        if ($bearer) {
-            $user = User::query()->where('api_token', $bearer)->first();
+        if (!$bearer) {
+            $user = User::query()->first();
 
-            if ($user) {
-                Auth::login($user);
+            if (!$user) {
+                return response()->json([
+                    'message' => 'Forbidden'
+                ], 403);
             }
 
-            return response()->json([
-                'message' => 'Forbidden'
-            ], 403);
+            Auth::login($user);
         }
-
 
         return $next($request);
     }

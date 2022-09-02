@@ -12,7 +12,7 @@
 <script src="https://unpkg.com/vue@3"></script>
 <div id="app">
     <div class="main-wrap">
-        <component ref="main-window" :is="isAuth ? 'auth-page' : 'main-page'"></component>
+        <component ref="main-window" :is="currentPage"></component>
         <div class="notification-block" :class="{'green': notification.isSuccess }" v-if="notification.visible">
             <div class="message" v-html="notification.message"></div>
         </div>

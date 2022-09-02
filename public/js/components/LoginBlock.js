@@ -14,27 +14,30 @@ export default {
                 headers: {
                     'Content-Type': 'application/json',
                 },
+
                 body: JSON.stringify(this.userFields),
             })
                 .then(res => res.json())
                 .then(res => {
                     if (res.errors) {
-                        this.$root.displayNotification(res.errors);
-                        return null;
+                        this.$root.displayNotification(res.errors)
+
+                        return null
                     }
 
                     if (res.message) {
                         if (res.message.isAdmin) {
-                            window.location.href = '/admin';
-                            localStorage.setItem(res.message.token);
+                            window.location.href = '/admin'
                         } else {
-                            this.$root.isAuth = false;
+                            this.$root.changePage('main-page');
                         }
 
-                        return true;
+                        localStorage.setItem("api_token", res.message.token)
+
+                        return true
                     }
 
-                    return false;
+                    return false
                 })
                 .catch(res => console.log(res))
         }
@@ -46,7 +49,7 @@ export default {
             <input type="text" class="input" placeholder="Пароль" v-model="userFields.password">
             <button class="btn black">Отправить</button>
             <div class="bottom-link">
-                <a href="#" class="link" @click.prevent="this.$emit('changePage', false)">Зарегистрироваться</a>
+                <a href="#" class="link" @click.prevent="this.$root.changePage('register-page')">Зарегистрироваться</a>
             </div>
         </form>
         </div>

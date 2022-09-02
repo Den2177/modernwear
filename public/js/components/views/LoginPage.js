@@ -1,5 +1,4 @@
 import LoginBlock from "../LoginBlock.js";
-import RegisterBlock from "../RegisterBlock.js";
 
 export default {
     data() {
@@ -7,15 +6,15 @@ export default {
             isLogin: true,
         }
     },
-    components: {LoginBlock, RegisterBlock},
+    components: {LoginBlock},
     methods: {
         changeAuthPage(boolean) {
-            this.isLogin = boolean;
+            this.isLogin = boolean
         }
     },
     template: `
         <div class="auth-wrap">
-        <component @change-page="changeAuthPage" :is="isLogin ? 'login-block' : 'register-block'"></component>
+        <login-block></login-block>
         </div>
     `
 }

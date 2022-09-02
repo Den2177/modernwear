@@ -10,7 +10,7 @@ export default {
         },
     },
     mounted() {
-        this.getProducts();
+        this.getProducts()
     },
     template: `<main class="main">
                    <div class="catblock">
