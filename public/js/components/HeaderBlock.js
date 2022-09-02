@@ -9,25 +9,25 @@ export default {
             this.$emit('changePage', pageName);
         }
     },
-    template: "<header class=\"header\">\n" +
-        "            <div class=\"container\">\n" +
-        "                <a href=\"#\" class=\"logo\">\n" +
-        "                    <img src=\"http://modernwear/public/images/logo2.png\" alt=\"logo\">\n" +
-        "                </a>\n" +
-                        "<input type=\"text\" class='input' placeholder='Search...' />\n" +
-        "                <div class=\"buttons\">\n" +
-        "                    <button class=\"btn black\">Вход</button>\n" +
-        "                    <button class=\"btn black\">Регистрация</button>\n" +
-        "                    <button class=\"btn black\">Выйти</button>\n" +
-        "                </div>\n" +
-        "                <div class=\"buttons\">\n" +
-        "                    <button class=\"btn black\">Корзина</button>\n" +
-        "                </div>\n" +
-        "                <a href=\"/products\" class=\"link\" @click.prevent='changePage(\"products-block\")'>Все товары</a>\n" +
-        "                <div class=\"category-links\">\n" +
-        "                    <a href=\"/\" class=\"link\">category 1</a>\n" +
-        "                    <a href=\"/\" class=\"link\">category 2</a>\n" +
-        "                </div>\n" +
-        "            </div>\n" +
-        "        </header>",
+    template: `<header class="header">
+                    <div class="container">
+                        <a href=# class="logo">
+                            <img src=http://modernwear/public/images/logo2.png alt=logo>
+                        </a>
+                        <input type=text class="input" placeholder='Search...' />
+                        <div class="buttons">
+                            <button class="btn black">Вход</button>
+                            <button class="btn black">Регистрация</button>
+                            <button class="btn black" @click.prevent="this.$root.isAuth = true">Выйти</button>
+                        </div>
+                        <div class="buttons">
+                            <button class="btn black">Корзина</button>
+                        </div>
+                        <a href="#" class="link" @click.prevent='changePage("products-block")'>Все товары</a>
+                        <div class="category-links">
+                            <a href="" class="link">category 1</a>
+                            <a href="" class="link">category 2</a>
+                        </div>
+                    </div>
+                </header>`,
 }

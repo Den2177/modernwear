@@ -2,7 +2,6 @@ export default {
     data() {
         return {
             products: [],
-            imageLink: window.imageLink,
         }
     },
     template: `
@@ -11,7 +10,7 @@ export default {
             <div class='body'>
                 <div class='products'>
                     <div v-for='product in products' class='card box'>
-                        <div class='image'><img :src="imageLink + product.image" alt=''></div>
+                        <div class='image'><img :src="this.$root.$options.imageLink + product.image" alt=''></div>
                         <h3>{{product.name}}</h3>
                         <div class="product-cat">
                           {{ product.category.name }}

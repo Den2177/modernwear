@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{route}', [\App\Http\Controllers\BaseController::class, 'index'])->where('route', '.*');
+Route::middleware([\App\Http\Middleware\ApiToken::class])->group(function() {
+    Route::get('/admin', [\App\Http\Controllers\BaseController::class, 'getAdminPage'])->middleware(['admin.basic']);
+});
+Route::get('/{route}', [\App\Http\Controllers\BaseController::class, 'getUserPage'])->where('route', '.*');
+

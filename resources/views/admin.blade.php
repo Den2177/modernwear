@@ -11,11 +11,14 @@
 <body>
 <script src="https://unpkg.com/vue@3"></script>
 <div id="app">
-    <div class="main-wrap">
-        <component ref="main-window" :is="isAuth ? 'auth-page' : 'main-page'"></component>
-        <div class="notification-block" :class="{'green': notification.isSuccess }" v-if="notification.visible">
-            <div class="message" v-html="notification.message"></div>
+    <div class="wrapper">
+        <header-block @change-page="changePage"></header-block>
+        <div class="admin-block">
+            <div class="make-admin">
+                get the admin page
+            </div>
         </div>
+        <footer-block></footer-block>
     </div>
 
 </div>
