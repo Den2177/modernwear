@@ -6,18 +6,16 @@ import ProductsBlock from "../ProductsBlock.js";
 export default {
     data() {
         return {
-            componentName: 'main-block',
+            message: 'yo',
         }
     },
     methods: {
-        changePage(newPage) {
-            this.componentName = newPage
-        }
+
     },
     components: {HeaderBlock, FooterBlock, MainBlock, ProductsBlock},
     template: `
         <div class="wrapper">
-        <header-block @change-page="changePage"></header-block>
+        <header-block></header-block>
         <main-block></main-block>
         <footer-block></footer-block>
         </div>`,

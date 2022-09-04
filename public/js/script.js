@@ -2,6 +2,7 @@ import MainPage from "./components/views/MainPage.js";
 import LoginPage from "./components/views/LoginPage.js";
 import RegisterPage from "./components/views/RegisterPage.js";
 import ProductsPage from "./components/views/ProductsPage.js";
+import ModalWindow from "./components/ModalWindow.js";
 
 const {createApp} = Vue;
 
@@ -14,16 +15,43 @@ const app = createApp({
                 message: '',
                 isSuccess: true,
             },
+            headerSearch: "",
+            modalVisible: false,
+            categoryModalVisible: false,
+            usersModalVisible: false,
         }
     },
-    components: { MainPage, LoginPage, RegisterPage, ProductsPage },
-    imageLink: 'http://modernwear/public/images/',
+    components: {MainPage, LoginPage, RegisterPage, ProductsPage, ModalWindow},
     methods: {
+        confirm() {
+            window.location.href = '/admin/products/' + this.$options.currentProductId + '/delete';
+        },
+        deleteCategory(categoryId) {
+            this.$options.currentCategoryId = categoryId;
+            this.categoryModalVisible = true;
+
+        },
+        deleteUser(userId) {
+            this.$options.currentUserId = userId;
+            this.usersModalVisible = true;
+        },
+        confirmUser() {
+            window.location.href = '/admin/users/' + this.$options.currentUserId + '/delete';
+        },
+        confirmCategory() {
+            window.location.href = '/admin/category/' + this.$options.currentCategoryId + '/delete';
+        },
+        openPopup(productId) {
+            this.modalVisible = true;
+            this.$options.currentProductId = productId;
+        },
         changePage(newPageName) {
             this.currentPage = newPageName;
         },
         checkToken() {
-            return !!localStorage.getItem('api_token');
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            return !!user?.token;
         },
         displayNotification(content) {
             if (typeof content === 'object') {
@@ -54,8 +82,6 @@ const app = createApp({
             }
         },
         getApiToken() {
-            const apiToken = localStorage.getItem('api_token');
-            this.$root.isAuth = apiToken === '';
         }
     },
     mounted() {

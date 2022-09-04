@@ -5,19 +5,17 @@ import ProductsBlock from "../ProductsBlock.js";
 export default {
     data() {
         return {
-            componentName: 'main-block',
+            message: 'hi guys',
         }
     },
     methods: {
-        changePage(newPage) {
-            this.componentName = newPage
-        }
+
     },
     components: {HeaderBlock, FooterBlock, ProductsBlock},
     template: `
         <div class="wrapper">
         <header-block></header-block>
-        <products-block></products-block>
+        <products-block ref="products-block"></products-block>
         <footer-block></footer-block>
         </div>`,
 }

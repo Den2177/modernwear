@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class AuthController extends Controller
         }
 
         unset($data['passwordConfirmation']);
-        $data['password'] = Hash::make($data['password']);
+
         $user = User::create($data);
 
         return response()->json(
@@ -50,23 +51,22 @@ class AuthController extends Controller
         }
 
 
+        $user = User::where('login', $data['login'])->firstWhere('password', $data['password']);
 
-        if (!Auth::attempt($data)) {
+        if (!$user) {
             return response()->json(
                 [
-                    'message' => 'user unauthorized',
+                    'errors' => 'User unauthorized',
                 ], 401
             );
         }
 
-        $user = User::firstWhere('login', $data['login']);
         $user->api_token = \Illuminate\Support\Str::random() . uniqid();
 
         return response()->json(
             [
                 'message' => [
-                    'isAdmin' => $user->isAdmin,
-                    'token' => $user->api_token,
+                    'user' => new UserResource($user),
                 ],
             ], 200
         );

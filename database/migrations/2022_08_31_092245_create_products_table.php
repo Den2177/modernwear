@@ -18,9 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->text('description');
-            $table->string('price');
+            $table->unsignedBigInteger('price');
             $table->timestamps();
-            $table->foreignId('category_id');
         });
     }
 

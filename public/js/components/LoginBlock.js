@@ -26,13 +26,14 @@ export default {
                     }
 
                     if (res.message) {
-                        if (res.message.isAdmin) {
+                        console.log(res.message);
+                        if (res.message.user.isAdmin) {
                             window.location.href = '/admin'
                         } else {
                             this.$root.changePage('main-page');
                         }
 
-                        localStorage.setItem("api_token", res.message.token)
+                        localStorage.setItem('user', JSON.stringify(res.message.user));
 
                         return true
                     }

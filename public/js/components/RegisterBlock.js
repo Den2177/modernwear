@@ -22,7 +22,7 @@ export default {
                   if (res.errors) {
                       this.$root.displayNotification(res.errors);
                   } else if (res.message) {
-                      this.$emit('change-page', true)
+                      this.$root.changePage('login-page');
                   }
               })
               .catch(err => {

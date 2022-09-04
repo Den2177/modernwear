@@ -18,12 +18,14 @@ export default {
                            <div class="categories">
                                <div class="card box" v-for="cat in cats">
                                    <div class="cat-image image">
-                                       <img :src="this.$root.$options.imageLink + cat.image" alt="cat image">
+                                       <img :src="cat.image" alt="cat image">
                                    </div>
-                                   <h3 class="cat-name">
-                                       {{ cat.name }}
-                                   </h3>
-                                   <button class="btn">Перейти</button>
+                                   <div class="padding-wrap">
+                                       <h3 class="cat-name">
+                                           {{ cat.name }}
+                                       </h3>
+                                       <button class="btn">Перейти</button>
+                                   </div>
                                </div>
                            </div>
                        </div>

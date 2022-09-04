@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('image');
             $table->string('name');
+            $table->boolean('header_visible')->default(false);
             $table->timestamps();
         });
     }
