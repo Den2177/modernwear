@@ -24,11 +24,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'user_products', 'user_id', 'product_id');
+    }
     /**
      * The attributes that should be cast.
      *

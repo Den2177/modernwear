@@ -5,16 +5,18 @@ import ProductsBlock from "../ProductsBlock.js";
 export default {
     data() {
         return {
-            message: 'hi guys',
+
         }
     },
     methods: {
+        filter() {
 
+        }
     },
-    components: {HeaderBlock, FooterBlock, ProductsBlock},
+    components: { HeaderBlock, FooterBlock, ProductsBlock },
     template: `
         <div class="wrapper">
-        <header-block></header-block>
+        <header-block ref="header"></header-block>
         <products-block ref="products-block"></products-block>
         <footer-block></footer-block>
         </div>`,

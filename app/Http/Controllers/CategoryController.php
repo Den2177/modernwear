@@ -53,9 +53,8 @@ class CategoryController extends Controller
             $data['image'] = url('public/images/categories/'. $name);
         }
 
-        if ($request->has('header_visible')) {
-            $data['header_visible'] = true;
-        }
+        $data['header_visible'] = $request->has('header_visible');
+
 
         $category->update($data);
 

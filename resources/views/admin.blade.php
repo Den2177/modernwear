@@ -149,11 +149,17 @@
                     <div class="panel">
                         <div class="table-item">
                             <table class="table">
+                                <tbody>
                                 <tr>
                                     <th>Логин</th>
                                     <th>Пароль</th>
                                     <th>Права администратора</th>
+                                    <th>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
+
                                 @foreach($users as $user)
                                     <tr>
                                         <td>
@@ -170,6 +176,8 @@
                                     </tr>
                                     </tr>
                                 @endforeach
+                                </tbody>
+
                             </table>
                         </div>
 

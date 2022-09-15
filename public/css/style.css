@@ -102,6 +102,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    flex: 1 1 auto;
 }
 
 .padding-wrap {
@@ -111,6 +112,7 @@ a {
     flex-direction: column;
 }
 .product-size {
+    cursor: pointer;
     align-self: flex-start;
     border: 1px solid #121314;
     border-radius: 5px;
@@ -333,18 +335,26 @@ th {
     text-align: left;
 }
 
-.table-item {
-    padding: .5rem;
-    background-color: #f2f2fe;
-    border-radius: .5rem;
+table {
+    box-shadow: 1px 2px 3px rgba(18, 19, 20, 0.16);
+    border-radius: .75rem;
+    border-collapse: collapse;
 }
 
-table {
+thead {
+    border-radius: .75rem;
     padding: 1rem;
+    background-color: #f2f2fe;
 }
+
 td {
-    padding: .5rem;
+    padding: 1rem;
     word-break: break-word;
+}
+th {
+    padding: 1rem;
+    text-transform: uppercase;
+
 }
 .sizes-block {
     display: flex;
@@ -374,4 +384,106 @@ td {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.nav.links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.nav .link {
+    background-color: #f2f2fe;
+    padding: .4rem .8rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.paginator {
+    margin-top: 20px;
+}
+.card {
+    height: 100%;
+
+}
+.padding-wrap {
+    height: 100%;
+}
+.product-show {
+    flex: 1 1 auto;
+}
+.double {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+.full-image {
+    flex: 0 1 50%;
+    max-width: 100%;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.full-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.product-counter {
+    border: 1px solid #4a5568;
+    padding: .7rem;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    align-self: center;
+    align-items: center;
+}
+
+.link {
+    user-select: none;
+}
+.product-size.active {
+    border: 3px solid #ff514f;
+
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.cart-image {
+    width: 200px;
+    height: 200px;
+}
+.cart-image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.cart-body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+}
+.buy-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.table {
+    padding: 20px;
+}
+th {
+    border-bottom: 1px solid rgba(74, 85, 104, 0.15);
+}
+td {
+    border-bottom: 1px solid rgba(74, 85, 104, 0.15);
 }

@@ -1,22 +1,24 @@
 export default {
     data() {
         return {
-            cats: [],
         }
     },
     methods: {
-        getProducts() {
-            fetch('/api/cats').then(res => res.json()).then(res => this.cats = res.data);
-        },
+
     },
     mounted() {
-        this.getProducts()
+
+    },
+    computed: {
+        categories() {
+            return this.$root.apiData.categories;
+        }
     },
     template: `<main class="main">
                    <div class="catblock">
                        <div class="container">
                            <div class="categories">
-                               <div class="card box" v-for="cat in cats">
+                               <div class="card box" v-for="cat in categories">
                                    <div class="cat-image image">
                                        <img :src="cat.image" alt="cat image">
                                    </div>

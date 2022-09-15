@@ -16,6 +16,7 @@ class AdminController extends Controller
         $categories = Category::all();
         $sizes = Size::all();
         $users = User::all();
+
         return view('admin', compact('products', 'categories', 'sizes', 'users'));
     }
 }
